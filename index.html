@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tagaytay, Silang, Mendez &amp; Alfonso Legit Stays — Verified Concierge</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:#f1f5f9;color:#0f172a;line-height:1.45}
+    header{background:#064e3b;color:#fff;padding:14px 20px;position:sticky;top:0;z-index:40;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+    .wrap{max-width:1200px;margin:0 auto}
+    .flex-between{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:40px;height:40px;border-radius:10px;background:#10b981;color:#064e3b;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900}
+    .brand h1{font-size:18px;font-weight:800}
+    .brand p{font-size:12px;color:#a7f3d0}
+    .pill{background:#065f46;border:1px solid #059669;padding:6px 12px;border-radius:8px;font-size:12px;color:#ecfdf5}
+    .btn{cursor:pointer;border:none;border-radius:10px;padding:9px 14px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:6px}
+    .btn-admin{background:#047857;color:#fff;border:1px solid #10b981}
+    .btn-green{background:#059669;color:#fff}
+    .btn-dark{background:#1e293b;color:#fff;width:100%;justify-content:center;padding:12px}
+    .btn-msg{background:#0084ff;color:#fff;width:100%;justify-content:center;padding:12px}
+    .btn-red{background:#fee2e2;color:#b91c1c;padding:5px 10px}
+    .btn-sm{padding:5px 10px;font-size:11px}
+
+
+
+    .admin-box{background:#fffbeb;border-bottom:2px solid #fcd34d;padding:20px}
+    .admin-grid{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:14px}
+    .main-grid{display:grid;grid-template-columns:7fr 5fr;gap:22px;padding:22px 20px;align-items:start}
+    @media(max-width:880px){.admin-grid,.main-grid{grid-template-columns:1fr}}
+    .card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.05);margin-bottom:16px}
+    .sticky{position:sticky;top:78px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .grid-3{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:10px}
+    @media(max-width:640px){.grid-3{grid-template-columns:1fr 1fr}}
+    .full{grid-column:1/-1}
+    label.lbl{display:block;font-size:11px;font-weight:700;color:#475569;margin-bottom:4px;text-transform:uppercase}
+    input,select,textarea{width:100%;padding:9px 11px;border:1px solid #cbd5e1;border-radius:10px;font-size:13px;font-family:inherit}
+    .map-wrap{padding:0;overflow:hidden}
+    .map-top{padding:10px 16px;background:#f8fafc;border-bottom:1px solid #e2e8f0;font-size:12px;font-weight:700}
+    .map-top a{color:#047857;text-decoration:none}
+    .pin-canvas{width:100%;height:240px;background:radial-gradient(circle at 50% 45%,#d1fae5 0%,#a7f3d0 45%,#6ee7b7 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px}
+    .pin-grid{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(6,78,59,.07) 1px,transparent 1px),linear-gradient(to bottom,rgba(6,78,59,.07) 1px,transparent 1px);background-size:28px 28px}
+    .pin-popup{position:relative;z-index:2;background:#fff;padding:14px 18px;border-radius:14px;box-shadow:0 8px 20px rgba(6,78,59,.15);border:2px solid #059669;max-width:340px}
+    .prop-card{display:flex;gap:14px;background:#fff;border:2px solid #e2e8f0;border-radius:16px;overflow:hidden;margin-bottom:14px;cursor:pointer}
+    .prop-card.active{border-color:#059669;box-shadow:0 4px 12px rgba(5,150,105,.15)}
+    .thumb{width:150px;min-height:135px;background:linear-gradient(135deg,#065f46,#0f766e);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px;flex-shrink:0;object-fit:cover}
+    @media(max-width:540px){.prop-card{flex-direction:column}.thumb{width:100%;height:130px}}
+    .prop-info{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+    .tag-ok{background:#059669;color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:999px}
+    .tag-wait{background:#fef3c7;color:#92400e;font-size:10px;font-weight:800;padding:3px 8px;border-radius:999px}
+    .tag-town{background:#e0f2fe;color:#0369a1;font-size:10px;font-weight:800;padding:3px 8px;border-radius:999px}
+    .panel-top{background:#064e3b;color:#fff;padding:16px}
+    .panel-top h2{font-size:17px;font-weight:800;margin-top:4px}
+    .panel-top p{font-size:12px;color:#a7f3d0}
+    .panel-body{padding:16px;display:flex;flex-direction:column;gap:12px}
+    .vid-toggle{display:flex;align-items:center;justify-content:space-between;background:#ecfdf5;border:1px solid #a7f3d0;padding:11px;border-radius:12px;cursor:pointer}
+    .pay-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:9px;font-size:13px}
+    .gotyme{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center}
+    textarea.msg-box{background:#0f172a;color:#6ee7b7;font-family:monospace;font-size:12px;line-height:1.45}
+    .hidden{display:none!important}
+    .modal{position:fixed;inset:0;background:rgba(15,23,42,.65);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px}
+    .modal-card{background:#fff;border-radius:16px;max-width:360px;width:100%;padding:20px}
+    footer{background:#0f172a;color:#94a3b8;font-size:12px;padding:16px 20px;margin-top:30px}
+    footer a{color:#34d399;text-decoration:none}
+  </style>
+</head>
+<body>
+
+
+
+<header>
+  <div class="wrap flex-between">
+    <div class="brand">
+      <div class="logo">🛡️</div>
+      <div>
+        <h1>Tagaytay • Silang • Mendez • Alfonso</h1>
+        <p>On-Site Verified Stays • Live Video Call Proof • Pay Direct to Owner</p>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="pill">Concierge Fee: <strong id="hdrRate">8% (Min ₱350)</strong></div>
+      
+      
+    </div>
+  </div>
+</header>
+
+
+
+
+
+<main class="wrap main-grid">
+  <div>
+    <div class="card">
+      <div class="grid-3">
+        <div><label class="lbl">Search Stay / Barangay</label><input type="text" id="fSearch" oninput="render()" placeholder="Condo, villa, barangay..."></div>
+        <div><label class="lbl">Town / Area</label>
+          <select id="fTown" onchange="render()">
+            <option value="ALL">All 4 Towns</option>
+            <option value="Tagaytay">Tagaytay</option>
+            <option value="Silang">Silang</option>
+            <option value="Mendez">Mendez</option>
+            <option value="Alfonso">Alfonso</option>
+          </select>
+        </div>
+        <div><label class="lbl">Stay Type</label>
+          <select id="fType" onchange="render()"><option value="ALL">All Types</option><option>Condo Unit</option><option>Transient House</option><option>Private Villa</option><option>Farm / Cabin Stay</option></select>
+        </div>
+        <div><label class="lbl">Max Budget (₱)</label><input type="number" id="fMax" step="500" oninput="render()" placeholder="Any ₱"></div>
+      </div>
+      <div class="flex-between" style="margin-top:10px;padding-top:10px;border-top:1px solid #f1f5f9">
+        <label style="font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;cursor:pointer">
+          <input type="checkbox" id="fVer" onchange="render()" style="width:auto"> Show Legit Verified Only
+        </label>
+        <span id="cntLbl" style="font-size:12px;color:#64748b;font-weight:600">0 properties available</span>
+      </div>
+    </div>
+
+    <div class="card map-wrap">
+      <div class="map-top flex-between">
+        <span id="mapTitle">📍 Pin Location: Tagaytay • Silang • Mendez • Alfonso</span>
+        <a id="extMap" href="https://google.comTagaytay+Silang+Mendez+Alfonso+Cavite" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+      </div>
+      <div class="pin-canvas">
+        <div class="pin-grid"></div>
+        <div class="pin-popup">
+          <div style="font-size:24px;margin-bottom:2px">📍</div>
+          <strong id="pinCardName" style="display:block;font-size:14px;color:#064e3b">Tagaytay, Silang, Mendez &amp; Alfonso</strong>
+          <span id="pinCardCoords" style="display:block;font-size:11px;color:#475569;margin-top:2px">Cavite Upland Ridge • Select a stay to view exact pin</span>
+          <a id="pinCardBtn" href="https://google.comTagaytay+Silang+Mendez+Alfonso+Cavite" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;background:#047857;color:#fff;font-size:11px;font-weight:700;padding:6px 12px;border-radius:8px;text-decoration:none">Launch Exact Pin in Google Maps ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="emptyBox" class="card hidden" style="text-align:center;padding:32px 18px;border-style:dashed">
+      <div style="font-size:30px;margin-bottom:6px">🧭</div>
+      <h3 style="font-size:16px;font-weight:800;margin-bottom:6px">Building Our Verified Catalog Organically</h3>
+      <p style="font-size:13px;color:#64748b;max-width:440px;margin:0 auto 14px">We start from zero and only list stays in Tagaytay, Silang, Mendez, and Alfonso after personally inspecting the property and verifying the owner.</p>
+      <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-green" onclick="customReq()">🎥 Request Custom Ocular Check</button>
+        
+      </div>
+    </div>
+
+    <div id="grid"></div>
+  </div>
+
+
+
+
+  <div class="sticky">
+    <div class="card" style="padding:0;overflow:hidden">
+      <div class="panel-top">
+        <div class="flex-between">
+          <span style="font-size:10px;font-weight:800;letter-spacing:1px;color:#6ee7b7">INSTANT ANTI-SCAM BOOKING</span>
+          <span id="selVerPill" class="tag-ok hidden" style="background:#10b981;color:#064e3b">🛡️ LEGIT VERIFIED</span>
+        </div>
+        <h2 id="bTitle">Custom Ocular &amp; Booking Request</h2>
+        <p id="bSub">Tagaytay • Silang • Mendez • Alfonso</p>
+      </div>
+      <div class="panel-body">
+        <div class="grid-2">
+          <div><label class="lbl">Check-In</label><input type="date" id="bIn" onchange="calc()"></div>
+          <div><label class="lbl">Check-Out</label><input type="date" id="bOut" onchange="calc()"></div>
+          <div><label class="lbl">Guests (Pax)</label><input type="number" id="bPax" min="1" value="2" oninput="calc()"></div>
+          <div><label class="lbl">Your Name</label><input type="text" id="bGuest" oninput="calc()" placeholder="Juan Dela Cruz"></div>
+        </div>
+        <label class="vid-toggle">
+          <div><strong style="display:block;font-size:13px;color:#064e3b">🎥 Live Video Call From Unit</strong><span style="font-size:11px;color:#047857">Verify unit &amp; owner live before paying</span></div>
+          <input type="checkbox" id="bVid" checked="" onchange="calc()" style="width:18px;height:18px">
+        </label>
+        <div class="pay-box">
+          <div class="flex-between" style="border-bottom:1px solid #e2e8f0;padding-bottom:6px;font-weight:800;font-size:12px">
+            <span>SPLIT-PAYMENT BREAKDOWN</span>
+            <span id="bNights" style="background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:6px">1 Night</span>
+          </div>
+          <div class="flex-between"><div><strong>1. Direct to Property Owner</strong><div style="font-size:11px;color:#64748b">Zero middleman markup</div></div><strong id="bOwner">Direct to Owner (TBD)</strong></div>
+          <div class="flex-between" style="border-top:1px solid #e2e8f0;padding-top:6px"><div><strong style="color:#065f46">2. Concierge Verification Fee</strong><div id="bRule" style="font-size:11px;color:#047857">8% or ₱350 minimum</div></div><strong id="bFee" style="color:#047857">₱350</strong></div>
+          <div class="gotyme">
+            <div><span style="display:block;font-size:10px;color:#64748b">Concierge GoTyme Account:</span><strong id="bGt" style="font-family:monospace">016467770182</strong></div>
+            <button type="button" class="btn btn-sm" style="background:#e2e8f0" onclick="copyGt()">Copy</button>
+          </div>
+          <div class="flex-between" style="border-top:1px solid #cbd5e1;padding-top:6px;font-size:15px"><strong>Estimated Total</strong><strong id="bTotal">₱350 + Owner Rate</strong></div>
+        </div>
+        <div>
+          <div class="flex-between" style="margin-bottom:4px"><span class="lbl" style="margin:0">Messenger Summary</span><span id="cpOk" class="hidden" style="font-size:11px;font-weight:700;color:#059669">Copied!</span></div>
+          <textarea id="msgBox" class="msg-box" readonly="" rows="6"></textarea>
+        </div>
+        <div class="grid-2">
+          <button type="button" class="btn btn-dark" onclick="copySum()">📋 Copy Summary</button>
+          <button type="button" class="btn btn-msg" onclick="openMsg()">💬 Copy &amp; Open Messenger</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+
+<footer>
+  <div class="wrap flex-between">
+    <p><strong style="color:#fff">Tagaytay • Silang • Mendez • Alfonso Legit Stays</strong> — Anti-Scam On-Site Booking Concierge</p>
+    <p>Direct Messenger: <a id="ftrMsg" href="https://m.me" target="_blank" rel="noopener">m.me/allanroderick.reyes</a></p>
+  </div>
+</footer>
+
+
+
+
+<script>
+const BAKED_PROPS = [];
+const BAKED_SET = {"pct":8,"min":350,"gt":"016467770182","msg":"https://m.me","pin":""};
+
+let props = JSON.parse(localStorage.getItem("tls_props")) || BAKED_PROPS;
+let cfg = JSON.parse(localStorage.getItem("tls_cfg")) || BAKED_SET;
+let admin = false;
+let selId = props.length > 0 ? props[0].id : null;
+
+function init() {
+  document.getElementById("sPct").value = cfg.pct;
+  document.getElementById("sMin").value = cfg.min;
+  document.getElementById("sGt").value = cfg.gt;
+  document.getElementById("sMsg").value = cfg.msg;
+  document.getElementById("sPin").value = cfg.pin;
+
+  const d1 = new Date(Date.now() + 86400000);
+  const d2 = new Date(Date.now() + 172800000);
+  document.getElementById("bIn").value = d1.toISOString().slice(0, 10);
+  document.getElementById("bOut").value = d2.toISOString().slice(0, 10);
+
+  syncUI();
+  render();
+  syncPanel();
+}
+
+function syncUI() {
+  document.getElementById("hdrRate").textContent = cfg.pct + "% (Min ₱" + cfg.min + ")";
+  document.getElementById("bGt").textContent = cfg.gt;
+  document.getElementById("ftrMsg").href = cfg.msg;
+}
+
+function saveSet() {
+  cfg = {
+    pct: parseFloat(document.getElementById("sPct").value) || 0,
+    min: parseFloat(document.getElementById("sMin").value) || 350,
+    gt: document.getElementById("sGt").value.trim() || "016467770182",
+    msg: document.getElementById("sMsg").value.trim() || "https://m.me",
+    pin: document.getElementById("sPin").value.trim() || "1234"
+  };
+  localStorage.setItem("tls_cfg", JSON.stringify(cfg));
+  syncUI();
+  render();
+  calc();
+}
+
+function selProp(id) {
+  selId = id;
+  render();
+  syncPanel();
+}
+
+function customReq() {
+  selId = null;
+  render();
+  syncPanel();
+  document.getElementById("bGuest").focus();
+}
+
+
+
+
+function syncPanel() {
+  const p = props.find(function(x) { return x.id === selId; });
+  const t = document.getElementById("mapTitle");
+  const a = document.getElementById("extMap");
+  const pill = document.getElementById("selVerPill");
+  const pName = document.getElementById("pinCardName");
+  const pCoords = document.getElementById("pinCardCoords");
+  const pBtn = document.getElementById("pinCardBtn");
+
+  if (p) {
+    const town = p.town || "Tagaytay";
+    const loc = p.area + ", " + town;
+    document.getElementById("bTitle").textContent = p.name;
+    document.getElementById("bSub").textContent = loc + " • Up to " + p.pax + " Guests";
+    pill.classList.toggle("hidden", !p.ver);
+    const q = encodeURIComponent(p.map || (p.name + ", " + loc));
+    const url = "https://google.com" + q;
+    t.textContent = "📍 Pin Location: " + p.name + " (" + town + ")";
+    a.href = url;
+    pName.textContent = p.name;
+    pCoords.textContent = loc + " (" + (p.map || "Cavite Upland") + ")";
+    pBtn.href = url;
+  } else {
+    document.getElementById("bTitle").textContent = "Custom Ocular & Booking Request";
+    document.getElementById("bSub").textContent = "Tagaytay • Silang • Mendez • Alfonso";
+    pill.classList.add("hidden");
+    const url = "https://google.comTagaytay+Silang+Mendez+Alfonso+Cavite";
+    t.textContent = "📍 Pin Location: Tagaytay • Silang • Mendez • Alfonso";
+    a.href = url;
+    pName.textContent = "Tagaytay, Silang, Mendez & Alfonso";
+    pCoords.textContent = "Cavite Upland Ridge • Select a stay to view exact pin";
+    pBtn.href = url;
+  }
+  calc();
+}
+
+function render() {
+  const g = document.getElementById("grid");
+  const emp = document.getElementById("emptyBox");
+  const s = document.getElementById("fSearch").value.toLowerCase();
+  const tw = document.getElementById("fTown").value;
+  const tp = document.getElementById("fType").value;
+  const mx = parseFloat(document.getElementById("fMax").value) || Infinity;
+  const vo = document.getElementById("fVer").checked;
+
+  const list = props.filter(function(p) {
+    const pTown = p.town || "Tagaytay";
+    const matchText = !s || p.name.toLowerCase().indexOf(s) !== -1 || p.area.toLowerCase().indexOf(s) !== -1 || pTown.toLowerCase().indexOf(s) !== -1 || p.feat.toLowerCase().indexOf(s) !== -1;
+    const matchTown = tw === "ALL" || pTown === tw;
+    const matchType = tp === "ALL" || p.type === tp;
+    const matchRate = p.rate <= mx;
+    const matchVer = !vo || p.ver;
+    return matchText && matchTown && matchType && matchRate && matchVer;
+  });
+
+  document.getElementById("cntLbl").textContent = list.length + " properties available";
+  if (list.length === 0) {
+    g.innerHTML = "";
+    emp.classList.remove("hidden");
+    return;
+  }
+  emp.classList.add("hidden");
+
+  g.innerHTML = list.map(function(p) {
+    const fee = Math.max(cfg.min, Math.round(p.rate * (cfg.pct / 100)));
+    const town = p.town || "Tagaytay";
+    const img = p.img
+      ? '<img src="' + esc(p.img) + '" class="thumb" onerror="this.style.display=\'none\'"/>'
+      : '<div class="thumb"><div style="font-size:26px">🏡</div><span style="font-size:11px;font-weight:700">' + esc(p.type) + '</span></div>';
+    const badge = p.ver ? '<span class="tag-ok">🛡️ LEGIT VERIFIED</span>' : '<span class="tag-wait">⏳ Pending Ocular</span>';
+    const adm = admin
+      ? '<div class="flex-between" style="margin-top:8px;padding-top:8px;border-top:1px solid #fde68a">' +
+          '<button type="button" class="btn btn-sm" style="background:' + (p.ver ? '#fde68a' : '#059669') + ';color:' + (p.ver ? '#78350f' : '#fff') + '" onclick="togVer(event,\'' + p.id + '\')">' + (p.ver ? 'Unverify' : 'Mark Legit Verified') + '</button>' +
+          '<button type="button" class="btn btn-red btn-sm" onclick="delProp(event,\'' + p.id + '\')">Delete</button>' +
+        '</div>'
+      : "";
+
+    return '<div class="prop-card ' + (p.id === selId ? 'active' : '') + '" onclick="selProp(\'' + p.id + '\')">' +
+      img +
+      '<div class="prop-info">' +
+        '<div>' +
+          '<div class="flex-between" style="margin-bottom:4px">' +
+            '<div style="display:flex;gap:5px;flex-wrap:wrap">' + badge + '<span class="tag-town">' + esc(town) + '</span></div>' +
+            '<span style="font-size:11px;font-weight:700;color:#64748b">Up to ' + p.pax + ' Pax</span>' +
+          '</div>' +
+          '<h3 style="font-size:15px;font-weight:800">' + esc(p.name) + '</h3>' +
+          '<p style="font-size:12px;color:#64748b;margin:2px 0 6px">📍 ' + esc(p.area) + ', ' + esc(town) + '</p>' +
+          '<p style="font-size:12px;color:#475569">' + esc(p.feat) + '</p>' +
+        '</div>' +
+        '<div>' +
+          '<div class="flex-between" style="border-top:1px solid #f1f5f9;padding-top:8px;margin-top:8px">' +
+            '<div><span style="display:block;font-size:10px;color:#94a3b8">Direct Owner Rate</span><strong>₱' + p.rate.toLocaleString() + '</strong>/night</div>' +
+            '<div style="text-align:right"><span style="display:block;font-size:10px;color:#047857;font-weight:700">Fee: +₱' + fee.toLocaleString() + '</span>' +
+            '<span style="font-size:11px;font-weight:800;color:' + (p.id === selId ? '#047857' : '#475569') + '">' + (p.id === selId ? '✔ Pinned on Map' : 'Click to Pin →') + '</span></div>' +
+          '</div>' +
+          adm +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join("");
+}
+
+function calc() {
+  const p = props.find(function(x) { return x.id === selId; });
+  const d1 = document.getElementById("bIn").value || "TBD";
+  const d2 = document.getElementById("bOut").value || "TBD";
+  const pax = document.getElementById("bPax").value || 1;
+  const gst = document.getElementById("bGuest").value.trim() || "Tourist Guest";
+  const vid = document.getElementById("bVid").checked ? "YES, please call from unit" : "Not needed";
+
+  let n = 1;
+  if (d1 !== "TBD" && d2 !== "TBD") {
+    const diff = Math.round((new Date(d2) - new Date(d1)) / 86400000);
+    if (diff > 0) n = diff;
+  }
+
+  document.getElementById("bNights").textContent = n + " Night" + (n > 1 ? "s" : "");
+  document.getElementById("bRule").textContent = cfg.pct + "% or ₱" + cfg.min + " minimum";
+
+  if (p) {
+    const own = p.rate * n;
+    const fee = Math.max(cfg.min, Math.round(own * (cfg.pct / 100)));
+    const tot = own + fee;
+    const town = p.town || "Tagaytay";
+
+    document.getElementById("bOwner").textContent = "₱" + own.toLocaleString();
+    document.getElementById("bFee").textContent = "₱" + fee.toLocaleString();
+    document.getElementById("bTotal").textContent = "₱" + tot.toLocaleString();
+
+    const mapUrl = "https://google.com" + encodeURIComponent(p.map || (p.name + ", " + town));
+    document.getElementById("msgBox").value =
+      "🏡 LEGIT STAY BOOKING (" + town.toUpperCase() + ")\n" +
+      "Guest: " + gst + "\n" +
+      "Property: " + p.name + " (" + (p.ver ? "LEGIT VERIFIED ✅" : "Pending Ocular") + ")\n" +
+      "Location: " + p.area + ", " + town + "\n" +
+      "Map Pin: " + mapUrl + "\n" +
+      "Dates: " + d1 + " to " + d2 + " (" + n + " night/s)\n" +
+      "Guests: " + pax + " pax\n" +
+      "Live Video Call: " + vid + "\n" +
+      "------------------\n" +
+      "Direct to Owner: ₱" + own.toLocaleString() + "\n" +
+      "Concierge Fee: ₱" + fee.toLocaleString() + "\n" +
+      "GoTyme #: " + cfg.gt + "\n" +
+      "Estimated Total: ₱" + tot.toLocaleString();
+  } else {
+    document.getElementById("bOwner").textContent = "Direct to Owner (TBD)";
+    document.getElementById("bFee").textContent = "₱" + cfg.min.toLocaleString();
+    document.getElementById("bTotal").textContent = "₱" + cfg.min.toLocaleString() + " + Owner Rate";
+
+    document.getElementById("msgBox").value =
+      "🏡 CUSTOM OCULAR & BOOKING REQUEST\n" +
+      "Area: Tagaytay / Silang / Mendez / Alfonso\n" +
+      "Guest: " + gst + "\n" +
+      "Dates: " + d1 + " to " + d2 + " (" + n + " night/s)\n" +
+      "Guests: " + pax + " pax\n" +
+      "Live Video Call: " + vid + "\n" +
+      "------------------\n" +
+      "Concierge Fee: ₱" + cfg.min.toLocaleString() + " (Min rate)\n" +
+      "GoTyme #: " + cfg.gt + "\n" +
+      "Note: Looking for verified stay recommendations!";
+  }
+}
+
+function copySum() {
+  navigator.clipboard.writeText(document.getElementById("msgBox").value).then(function() {
+    const c = document.getElementById("cpOk");
+    c.classList.remove("hidden");
+    setTimeout(function() { c.classList.add("hidden"); }, 2000);
+  });
+}
+
+function openMsg() {
+  navigator.clipboard.writeText(document.getElementById("msgBox").value).finally(function() {
+    window.open(cfg.msg, "_blank", "noopener");
+  });
+}
+
+function copyGt() {
+  navigator.clipboard.writeText(cfg.gt).then(function() {
+    alert("GoTyme copied: " + cfg.gt);
+  });
+}
+
+function exportHTML() {
+  const wasAdm = admin;
+  if (wasAdm) lockAdmin();
+  const c = document.documentElement.cloneNode(true);
+  ["admPanel", "admBadge", "hdrAdminBtn", "emptyAdminBtn", "pinMod"].forEach(function(id) {
+    const el = c.querySelector("#" + id);
+    if (el) el.remove();
+  });
+  c.querySelector("#grid").innerHTML = "";
+  c.querySelector("#emptyBox").classList.add("hidden");
+  let html = "<!DOCTYPE html>\n" + c.outerHTML;
+  const publicCfg = Object.assign({}, cfg, { pin: "" });
+  html = html.replace(/const BAKED_PROPS = \[[\s\S]*?\];/, "const BAKED_PROPS = " + JSON.stringify(props) + ";");
+  html = html.replace(/const BAKED_SET = \{[\s\S]*?\};/, "const BAKED_SET = " + JSON.stringify(publicCfg) + ";");
+  html = html.replace(/function toggleAdmin\(\)[\s\S]*?function selProp\(/, "function selProp(");
+  if (wasAdm) {
+    admin = true;
+    document.getElementById("admPanel").classList.remove("hidden");
+    document.getElementById("admBadge").classList.remove("hidden");
+    document.getElementById("admBtnTxt").textContent = "Exit Admin";
+    render();
+  }
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([html], { type: "text/html" }));
+  a.download = "index.html";
+  a.click();
+}
+
+function backupAdminMaster() {
+  const wasAdm = admin;
+  if (wasAdm) lockAdmin();
+  const c = document.documentElement.cloneNode(true);
+  c.querySelector("#grid").innerHTML = "";
+  c.querySelector("#emptyBox").classList.add("hidden");
+  c.querySelector("#pinMod").classList.add("hidden");
+  let html = "<!DOCTYPE html>\n" + c.outerHTML;
+  html = html.replace(/const BAKED_PROPS = \[[\s\S]*?\];/, "const BAKED_PROPS = " + JSON.stringify(props) + ";");
+  html = html.replace(/const BAKED_SET = \{[\s\S]*?\};/, "const BAKED_SET = " + JSON.stringify(cfg) + ";");
+  if (wasAdm) {
+    admin = true;
+    document.getElementById("admPanel").classList.remove("hidden");
+    document.getElementById("admBadge").classList.remove("hidden");
+    document.getElementById("admBtnTxt").textContent = "Exit Admin";
+    render();
+  }
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([html], { type: "text/html" }));
+  a.download = "admin-master.html";
+  a.click();
+}
+
+function esc(s) {
+  return s ? s.replace(/[&<>"']/g, function(m) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[m];
+  }) : "";
+}
+
+init();
+</script>
+
+
+</body></html>
