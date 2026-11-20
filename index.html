@@ -227,11 +227,13 @@ let admin = false;
 let selId = props.length > 0 ? props[0].id : null;
 
 function init() {
-  document.getElementById("sPct").value = cfg.pct;
-  document.getElementById("sMin").value = cfg.min;
-  document.getElementById("sGt").value = cfg.gt;
-  document.getElementById("sMsg").value = cfg.msg;
-  document.getElementById("sPin").value = cfg.pin;
+  if (document.getElementById("sPct")) {
+    document.getElementById("sPct").value = cfg.pct;
+    document.getElementById("sMin").value = cfg.min;
+    document.getElementById("sGt").value = cfg.gt;
+    document.getElementById("sMsg").value = cfg.msg;
+    document.getElementById("sPin").value = cfg.pin;
+  }
 
   const d1 = new Date(Date.now() + 86400000);
   const d2 = new Date(Date.now() + 172800000);
@@ -243,11 +245,13 @@ function init() {
   syncPanel();
 }
 
+
 function syncUI() {
-  document.getElementById("hdrRate").textContent = cfg.pct + "% (Min ₱" + cfg.min + ")";
-  document.getElementById("bGt").textContent = cfg.gt;
-  document.getElementById("ftrMsg").href = cfg.msg;
+  if (document.getElementById("hdrRate")) document.getElementById("hdrRate").textContent = cfg.pct + "% (Min ₱" + cfg.min + ")";
+  if (document.getElementById("bGt")) document.getElementById("bGt").textContent = cfg.gt;
+  if (document.getElementById("ftrMsg")) document.getElementById("ftrMsg").href = cfg.msg;
 }
+
 
 function saveSet() {
   cfg = {
